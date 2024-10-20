@@ -64,4 +64,10 @@ The system is implemented using MySQL, with the physical diagram created in MySQ
 - Integration with a front-end ordering system
 - Reporting and analytics features
 
-For more detailed information, please refer to the full design document.
+## Screenshots
+
+- ERD
+![ ERD of Pizza Shop Ordering System](./Images/pizza_ERD.png) 
+
+- MySQL Workbench genrated Model
+![MySQL Workbench genrated Model](./Images/pizza.svg)
