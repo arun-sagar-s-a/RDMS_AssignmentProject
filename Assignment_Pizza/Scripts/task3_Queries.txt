@@ -1,0 +1,137 @@
+Task 3:
+
+-- Queries
+
+-- group members:
+-----------------
+-- 1. Arun Sagar Sundahally Ashok
+-- 2. Mohammad Kadir
+
+-- Querying 1. 
+-- Display the data in the User table.
+--------------------------------------
+SELECT
+	*
+FROM
+	Users;
+
+-- Querying 2. 
+-- Display only the title, content and the category that each Post belongs to.
+SELECT
+	Title AS "Post Title",
+	Content AS "Content",
+	Category AS "Catergory"
+FROM
+	Posts;
+
+-- Querying 3. 
+-- Displays all posts that come under Technology category.
+----------------------------------------------------------
+SELECT
+	*
+FROM
+	Ratings
+WHERE
+	category = 'Technology';
+
+-- Querying 4.
+-- A query that displays a subset of columns with a multi-clause (predicate) WHERE statement using AND/OR
+---------------------------------------------------------------------------------------------------------
+SELECT
+	count(*) AS "Ratings between 0 and 2"
+FROM
+	Ratings
+WHERE
+	rating > 0
+	AND rating <= 2;
+
+-- Query 5. 
+-- Perform a single table join between Comments and Users tables
+----------------------------------------------------------------
+SELECT
+	Users.UserName AS "User",
+	Comments.Comment AS "Comment"
+FROM
+	Users
+	JOIN Comments ON Comments.UserID = Users.UserID;
+
+-- Query 6. 
+-- Perform a multi-table join between Comments, Users, and Posts tables
+-----------------------------------------------------------------------
+SELECT
+	Users.UserName AS "User",
+	Posts.Title AS "Post",
+	Comments.Comment AS "Comment"
+FROM
+	Comments
+	JOIN Users ON Comments.UserID = Users.UserID
+	JOIN Posts ON Comments.PostID = Posts.PostID;
+
+-- Query 7. 
+-- Perform an aggregate query to count the number of comments per user
+----------------------------------------------------------------------
+SELECT
+	Users.UserName,
+	COUNT(comment) AS "Number of comments"
+FROM
+	Comments
+	JOIN Users ON Comments.UserID = Users.UserID
+GROUP BY
+	Users.UserID;
+
+-- Query 8: 
+-- Perform an aggregate query to get average rating per post with GROUP BY
+-------------------------------------------------------------------------
+SELECT
+	PostID,
+	AVG(Rating) AS AverageRating
+FROM
+	Ratings
+GROUP BY
+	PostID;
+
+-- Query 9: 
+-- Count the number of comments for each post and include only those posts that have less than 3 comments.
+------------------------------------------------------------------------------------------------------
+SELECT
+	Posts.PostID,
+	Posts.Title,
+	COUNT(Comments.CommentID) AS "CommentCount"
+FROM
+	Posts
+	LEFT JOIN Comments ON Posts.PostID = Comments.PostID
+GROUP BY
+	Posts.PostID,
+	Posts.Title
+HAVING
+	COUNT(Comments.CommentID) < 3;
+
+-- Query 10:  
+--Find all users who have liked at least one post
+-------------------------------------------------
+SELECT
+	Username,
+	Email
+FROM
+	Users
+WHERE
+	UserID IN (
+		SELECT DISTINCT
+			UserID
+		FROM
+			Likes
+	);
+
+-- Query 11: 
+-- Calculate the average rating for each post and group by post ID and title.
+-----------------------------------------------------------------------------
+SELECT
+	Posts.PostID,
+	Posts.Title,
+	ROUND(AVG(Ratings.Rating),2) AS "AverageRating"
+FROM
+	Posts
+	JOIN Ratings ON Posts.PostID = Ratings.PostID
+GROUP BY
+	Posts.PostID,
+	Posts.Title;

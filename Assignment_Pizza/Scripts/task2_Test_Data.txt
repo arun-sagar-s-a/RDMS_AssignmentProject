@@ -1,0 +1,166 @@
+Task 2:
+
+-- Test Data command file
+
+-- group members:
+-----------------
+-- 1. Arun Sagar Sundahally Ashok
+-- 2. Mohammad Kadir
+
+Test Data for the tables create in previous task to work on.
+
+-- 1. User table data
+---------------------
+INSERT INTO
+	Users (Username, Email, Password)
+VALUES
+	('arunsagarsa', 'ivan@example.com', 'arunpass808'),
+	(
+		'Mohammad_regins',
+		'julia@example.com',
+		'mohammadpwd909'
+	),
+	(
+		'Mathew_King',
+		'kevin@example.com',
+		'mathewsecure010'
+	),
+	('laura', 'laura@example.com', 'laurapwd111'),
+	('mike_blue', 'mike@example.com', 'mikepwd212'),
+	('nancy_grey', 'nancy@example.com', 'nancypass313'),
+	(
+		'princess_purple',
+		'oliver@example.com',
+		'princppwd414'
+	),
+	(
+		'ottawa_brown',
+		'patricia@example.com',
+		'brownOttpwd515'
+	),
+	(
+		'apple_red',
+		'quentin@example.com',
+		'quentinpwd616'
+	),
+	(
+		'rachel_yellow',
+		'rachel@example.com',
+		'rachelpwd717'
+	);
+
+-- 2. Posts table
+-----------------
+INSERT INTO
+	Posts (UserID, Title, Content, Category)
+VALUES
+	(
+		1,
+		'My First Post',
+		'This is the content of my first post.',
+		'General'
+	),
+	(
+		2,
+		'Hello World',
+		'Hello everyone, this is my introduction.',
+		'Introduction'
+	),
+	(
+		3,
+		'A Day in Wonderland',
+		'Sharing my adventures in Wonderland.',
+		'Travel'
+	),
+	(
+		4,
+		'Building Dreams',
+		'How I build amazing things every day.',
+		'Inspiration'
+	),
+	(
+		5,
+		'Life Lessons',
+		'What I learned from my favorite teacher.',
+		'Education'
+	),
+	(
+		6,
+		'Tech Trends',
+		'Latest trends in technology for 2024.',
+		'Technology'
+	),
+	(
+		7,
+		'Fitness Journey',
+		'My journey to a healthier lifestyle.',
+		'Health'
+	),
+	(
+		8,
+		'Travel Diaries',
+		'Exploring new places and cultures.',
+		'Travel'
+	),
+	(
+		9,
+		'Programming Tips',
+		'Tips and tricks for efficient coding.',
+		'Technology'
+	),
+	(
+		10,
+		'Innovative Ideas',
+		'Ideas that can change the world.',
+		'Innovation'
+	);
+
+-- 3. Comments Table
+--------------------
+INSERT INTO
+	Comments (PostID, UserID, Comment)
+VALUES
+	(1, 2, 'Great post, John!'),
+	(1, 3, 'Really interesting, keep it up!'),
+	(2, 4, 'Welcome to the community, Jane!'),
+	(3, 5, 'Wonderland sounds amazing!'),
+	(4, 6, 'Inspiring story, Bob.'),
+	(5, 7, 'Thanks for sharing, Charlie.'),
+	(6, 8, 'Very informative, David.'),
+	(7, 9, 'Keep going, Emily!'),
+	(8, 10, 'Love your travel stories, Frank.'),
+	(9, 1, 'Great tips, Grace.'),
+	(10, 3, 'Awesome, like it');
+
+--4.  Likes table
+-----------------
+INSERT INTO
+	Likes (PostID, UserID)
+VALUES
+	(1, 2),
+	(1, 3),
+	(2, 4),
+	(3, 5),
+	(4, 6),
+	(5, 7),
+	(6, 8),
+	(7, 9),
+	(8, 10),
+	(9, 1);
+
+-- 5. Rating table
+------------------
+INSERT INTO
+	Ratings (PostID, UserID, Rating)
+VALUES
+	(1, 2, 5),
+	(1, 3, 4),
+	(2, 4, 4),
+	(3, 5, 5),
+	(4, 6, 4),
+	(5, 7, 4),
+	(6, 8, 5),
+	(7, 9, 4),
+	(8, 10, 5),
+	(9, 1, 4),
+	(10, 2, 5);

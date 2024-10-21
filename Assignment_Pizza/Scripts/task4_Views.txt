@@ -1,0 +1,49 @@
+Task 4:
+
+-- Views
+
+-- group members:
+-----------------
+-- 1. Arun Sagar Sundahally Ashok
+-- 2. Mohammad Kadir
+
+-- commands
+-----------
+-- 1. A dynamic view for query 4 in the previous task
+------------------------------------------------------
+
+CREATE VIEW Ratings_0_2 AS
+SELECT
+	count(*) AS "Ratings between 0 and 2"
+FROM
+	Ratings
+WHERE
+	rating > 0
+	AND rating <= 2;
+
+SELECT
+	*
+FROM
+	Ratings_0_2;
+
+-- 2. A dynamic view for query 9 in the previous task
+-----------------------------------------------------
+
+CREATE VIEW Comment_lessThan_3 AS
+SELECT
+	Posts.PostID,
+	Posts.Title,
+	COUNT(Comments.CommentID) AS "CommentCount"
+FROM
+	Posts
+	LEFT JOIN Comments ON Posts.PostID = Comments.PostID
+GROUP BY
+	Posts.PostID,
+	Posts.Title
+HAVING
+	COUNT(Comments.CommentID) < 3;
+
+SELECT
+	*
+FROM
+	Comment_lessThan_3;
