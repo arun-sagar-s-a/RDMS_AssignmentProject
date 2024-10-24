@@ -7,6 +7,7 @@ This repository contains a collection of database-related projects and assignmen
 
 ### Contents
 
-- **Project 1**: [Pizza Shop Delivery System desgin]
+- **Project 1**: [Pizza Shop Delivery System desgin](./Assignment_Pizza/ReadMe.md)
+- **Project 2**: [Appointment Management System](./Assignment_FullStackDB/ReadMe.md)
 
 Feel free to explore the projects and assignments to enhance your understanding of database concepts and practices.
